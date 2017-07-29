@@ -1085,10 +1085,7 @@ namespace Snoop
 			}
 
 			Debug.WriteLine(sb.ToString());
-			Clipboard.SetText(sb.ToString());
-		}
-
-		
-	}
-
+			Clipboard.SetDataObject(sb.ToString());
+		} 
+	} 
 }

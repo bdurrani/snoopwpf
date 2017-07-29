@@ -69,7 +69,7 @@ namespace Snoop
 			try
 			{
 				string xaml = XamlWriter.Save(((PropertyInformation)e.Parameter).Value);
-				Clipboard.SetData(DataFormats.Text, xaml);
+				Clipboard.SetDataObject(xaml);
 				MessageBox.Show("This brush has been copied to the clipboard. You can paste it into your project.", "Brush copied", MessageBoxButton.OK);
 			}
 			catch (Exception ex)
@@ -90,6 +90,7 @@ namespace Snoop
 			get { return this.GetValue(PropertyInspector.RootTargetProperty); }
 			set { this.SetValue(PropertyInspector.RootTargetProperty, value); }
 		}
+
 		public static readonly DependencyProperty RootTargetProperty =
 			DependencyProperty.Register
 			(
@@ -131,8 +132,7 @@ namespace Snoop
 
 			if (e.NewValue != null)
 				inspector.inspectStack.Add(e.NewValue);
-		}
-
+		} 
 
 		private string GetDelvePath(Type rootTargetType)
 		{

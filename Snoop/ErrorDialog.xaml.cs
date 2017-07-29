@@ -49,7 +49,7 @@ namespace Snoop
 		{
 			try
 			{
-				Clipboard.SetText(this.GetExceptionMessage());
+				Clipboard.SetDataObject(this.GetExceptionMessage());
 			}
 			catch (Exception ex)
 			{
